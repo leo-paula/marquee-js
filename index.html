@@ -1,0 +1,58 @@
+$(".r-sideimage").append(`
+<style>
+    .r-sideimage {
+        width: 50%;
+    }
+
+    .marquee {
+        overflow: hidden;
+        white-space: nowrap;
+        width: 100%;
+        background: #000;
+        height: 100%;
+    }
+
+    .marquee-content {
+        display: inline-flex;
+        height: 100%;
+    }
+
+    .marquee-item {
+        flex: 0 0 auto;
+    }
+
+    .marquee-item img {
+        height: 100%;
+        width: 100%;
+    }
+</style>
+
+<div class="marquee">
+    <div class="marquee-content" id="marquee-content">
+        <div class="marquee-item"><img src="https://s2.wklcdn.com/image_126/3795030/127658733/81866531.700x525.jpg" alt=""></div>
+        <div class="marquee-item"><img src="https://live.staticflickr.com/2106/2070629993_0da24db9a8_c.jpg" alt=""></div>
+        <div class="marquee-item"><img src="https://www.minasgerais.com.br/imagens/destinos/1591226428CAg4GNiL74.jpg" alt=""></div>
+    </div>
+</div>
+`);
+
+<script>
+    
+    setTimeout(() => {
+    const marqueeContent = document.getElementById('marquee-content');
+    
+    // DUPLICAÇÃO:
+    marqueeContent.innerHTML += marqueeContent.innerHTML;
+    
+    const contentWidth = marqueeContent.scrollWidth;
+
+    marqueeContent.animate([
+        { transform: 'translateX(0)' },
+        { transform: `translateX(-${contentWidth / 2}px)` }
+    ], {
+        duration: 20000,
+        iterations: Infinity,
+        easing: 'linear'
+    });
+}, 100);
+</script>
